@@ -152,9 +152,6 @@ async def announce(
         }
     ]
 }
-
-requests.post(WEBHOOK_LOG, json=log_data)
-
     await interaction.followup.send("ส่งสำเร็จ ✅", ephemeral=True)
 
 # ======================
