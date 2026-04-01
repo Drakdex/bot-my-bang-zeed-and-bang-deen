@@ -56,8 +56,15 @@ class VerifyView(discord.ui.View):
 @bot.tree.command(name="verify", description="ส่งหน้า Verify")
 async def verify(interaction: discord.Interaction):
 
+    # ✅ เช็คแอดมิน
+    if not interaction.user.guild_permissions.administrator:
+        return await interaction.response.send_message(
+            "❌ คำสั่งนี้ใช้ได้เฉพาะแอดมิน",
+            ephemeral=True
+        )
+
     embed = discord.Embed(
-        title=" WELCOME TO AN SERVER",
+        title="WELCOME TO AN SERVER",
         description="กดปุ่มด้านล่างเพื่อ Verify",
         color=0x2b2d31
     )
@@ -65,7 +72,6 @@ async def verify(interaction: discord.Interaction):
     embed.set_image(url="https://media.tenor.com/68Ad6sYP38cAAAAM/streched.gif")
 
     await interaction.response.send_message(embed=embed, view=VerifyView())
-
 # ======================
 # 📢 /announce
 # ======================
