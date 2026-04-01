@@ -11,6 +11,7 @@ now = datetime.now().strftime("%d/%m/%Y %H:%M")
 TOKEN = "MTQyOTYwNjQ1ODUwODQ0Mzc0OA.GMJ01j.zQ4ScaMZ275kV2xZzRfEyZ9rBKBv185hh58zrE"
 WEBHOOK_verify = "https://discord.com/api/webhooks/1488961555063111730/Sg-8YSSc9w-NbdBOPgIrxWUpiw9pcyP96wCW0vg3--vgkP5IbX75HBn--r_jVQ0s4gL_"
 WEBHOOK_ANNOUNCE = "https://discord.com/api/webhooks/1488992286389043401/Uyoj5awtZchVJXcWgKwanRrr2Vj0kGh826soSbqn_6XI-VHBUqbKUq5P9Z9XzEXa5cV7"
+WEBHOOK_LOG = "https://discord.com/api/webhooks/1489003650326986862/EXt-RfMtOKUpmCZpMgd5YPXn3iflX3nSzniGd0V4rajehLuColR2nBbSFQLmdNU0LuZ1"
 VERIFIED_ROLE_ID = 1415336672606032063
 
 # ======================
@@ -102,7 +103,7 @@ async def announce(
     embed = {
         "title": title,
         "description": message,
-        "timestamp": datetime.now(timezone.utc).isoformat()
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "color": 0x3498db
     }
 
@@ -119,6 +120,40 @@ async def announce(
     }
 
     requests.post(WEBHOOK_ANNOUNCE, json=data)
+    log_data = {
+    "username": "ANNOUNCE LOG",
+    "embeds": [
+        {
+            "title": "📢 มีการประกาศใหม่",
+            "color": 0xffcc00,
+            "fields": [
+                {
+                    "name": "👤 คนใช้คำสั่ง",
+                    "value": f"{interaction.user} ({interaction.user.id})",
+                    "inline": False
+                },
+                {
+                    "name": "📝 หัวข้อ",
+                    "value": title,
+                    "inline": False
+                },
+                {
+                    "name": "💬 ข้อความ",
+                    "value": message[:1000],
+                    "inline": False
+                },
+                {
+                    "name": "📍 เซิร์ฟเวอร์",
+                    "value": interaction.guild.name,
+                    "inline": False
+                }
+            ],
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        }
+    ]
+}
+
+requests.post(WEBHOOK_LOG, json=log_data)
 
     await interaction.followup.send("ส่งสำเร็จ ✅", ephemeral=True)
 
