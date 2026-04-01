@@ -95,7 +95,8 @@ async def announce(
 
     embed = {
         "title": title,
-        "description": f"{message}\n\n🕒 เวลา: {now}",
+        "description": message,
+        "timestamp": datetime.now(timezone.utc).isoformat()
         "color": 0x3498db
     }
 
