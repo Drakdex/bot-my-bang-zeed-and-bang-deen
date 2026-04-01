@@ -95,7 +95,7 @@ async def announce(
 
     embed = {
         "title": title,
-        "description": message,
+        "description": f"{message}\n\n🕒 เวลา: {now}",
         "color": 0x3498db
     }
 
