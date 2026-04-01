@@ -10,7 +10,7 @@ now = datetime.now().strftime("%d/%m/%Y %H:%M")
 # ======================
 TOKEN = "MTQyOTYwNjQ1ODUwODQ0Mzc0OA.GMJ01j.zQ4ScaMZ275kV2xZzRfEyZ9rBKBv185hh58zrE"
 WEBHOOK_verify = "https://discord.com/api/webhooks/1488961555063111730/Sg-8YSSc9w-NbdBOPgIrxWUpiw9pcyP96wCW0vg3--vgkP5IbX75HBn--r_jVQ0s4gL_"
-WEBHOOK_ANNOUNCE = "https://discord.com/api/webhooks/1488961555063111730/Sg-8YSSc9w-NbdBOPgIrxWUpiw9pcyP96wCW0vg3--vgkP5IbX75HBn--r_jVQ0s4gL_"
+WEBHOOK_ANNOUNCE = "https://discord.com/api/webhooks/1488992286389043401/Uyoj5awtZchVJXcWgKwanRrr2Vj0kGh826soSbqn_6XI-VHBUqbKUq5P9Z9XzEXa5cV7"
 VERIFIED_ROLE_ID = 1415336672606032063
 
 # ======================
